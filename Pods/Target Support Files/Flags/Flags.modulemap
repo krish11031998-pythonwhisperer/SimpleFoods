@@ -1,0 +1,6 @@
+framework module Flags {
+  umbrella header "Flags-umbrella.h"
+
+  export *
+  module * { export * }
+}
