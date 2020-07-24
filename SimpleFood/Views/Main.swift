@@ -9,23 +9,20 @@
 import Foundation
 import SwiftUI
 import ChameleonFramework
+var height:CGFloat = UIScreen.main.bounds.height/1.25
 struct CircleView:View{
     var food:EdamamRecipe;
     var body: some View{
         ScrollView(.vertical,showsIndicators: false){
             VStack{
-                ZStack(alignment: .top){
-                    Circle()
-                        .frame(width:width+200,height:width+300)
-                        .foregroundColor(Color(FlatWatermelon()))
-                        .padding(.horizontal,-100)
-                        .offset(y: -width)
-                    FoodDetailView(food: self.food).zIndex(1)
+                FoodDetailView(food: self.food)
                     
-                }
+                    .animation(.spring())
+                
             }
-            
-        }
+        }.edgesIgnoringSafeArea(.all)
+        .statusBar(hidden: true)
+            .navigationBarHidden(true)
         
     }
 }

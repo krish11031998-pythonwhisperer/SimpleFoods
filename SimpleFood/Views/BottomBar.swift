@@ -22,7 +22,7 @@ struct BottomBar: View {
                 Text("window 3")
             }
             Spacer()
-            Tabs(windowIndex: self.$window);
+            Tabs(windowIndex: self.$window)
         }.background(window == 0 ? Color.red : window == 1 ? Color.blue : window == 2 ? Color.yellow : Color.white)
         .edgesIgnoringSafeArea(.all)
     }
@@ -32,66 +32,61 @@ struct Tabs : View{
     
     @Binding var windowIndex : Int;
     var body : some View {
-        HStack(alignment: .bottom, spacing: 10){
-            Button(action: {
-                if self.windowIndex != 0{
-                    self.windowIndex = 0;
-                }
-            }) {
-                Image(systemName: "house.fill")
-                    .renderingMode(.original)
-                    .frame(width: 50,height:50)
-                    .opacity(self.windowIndex == 0 ? 1 : 0.5)
-            }
-            Spacer()
-            Button(action: {
-                if self.windowIndex != 1{
-                    self.windowIndex = 1;
-                }
-            }) {
-                Image(systemName: "magnifyingglass")
-                    .renderingMode(.original)
-                    .frame(width: 50,height:50)
-                    .opacity(self.windowIndex == 1 ? 1 : 0.5)
-            }
-            Spacer()
-            Button(action: {
-                if self.windowIndex != 2{
-                    self.windowIndex = 2;
-                }
-            }) {
-                Image(systemName: "list.dash")
-                    .renderingMode(.original)
-                    .frame(width: 50,height:50)
-                    .opacity(self.windowIndex == 2 ? 1 : 0.5)
-            }
-            Spacer()
-            Button(action: {
-                if self.windowIndex != 3{
-                    self.windowIndex = 3;
-                }
-            }) {
-                Image(systemName: "heart")
-                    .renderingMode(.original)
-                    .frame(width: 50,height:50)
-                    .opacity(self.windowIndex == 2 ? 1 : 0.5)
-            }
-//            Spacer()
-//            Button(action: {
-//                if self.windowIndex != 3{
-//                    self.windowIndex = 3;
-//                }
-//            }) {
-//                Image(systemName: "house.fill")
-//                    .renderingMode(.original)
-//                    .frame(width: 50,height:50)
-//                    .opacity(self.windowIndex == 3 ? 1 : 0.5)
-//            }
-            
-        }.padding(.horizontal,35)
-        .padding(.bottom)
-        .background(Color.white.opacity(0.5))
-        .clipShape(BarShape())
+        ZStack(alignment:.bottom){
+            Color(.clear)
+            RoundedRectangle(cornerRadius:20)
+            .fill(Color.gray)
+            .frame(width:width - 100,height:50)
+            .overlay(
+                HStack(alignment: .bottom){
+                    Button(action: {
+                        if self.windowIndex != 0{
+                            self.windowIndex = 0;
+                        }
+                    }) {
+                        Image(systemName: "house.fill")
+                            .renderingMode(.original)
+                            .frame(width: 50,height:50)
+                            .opacity(self.windowIndex == 0 ? 1 : 0.5)
+                    }
+                    Spacer()
+                    Button(action: {
+                        if self.windowIndex != 1{
+                            self.windowIndex = 1;
+                        }
+                    }) {
+                        Image(systemName: "magnifyingglass")
+                            .renderingMode(.original)
+                            .frame(width: 50,height:50)
+                            .opacity(self.windowIndex == 1 ? 1 : 0.5)
+                    }
+                    Spacer()
+                    Button(action: {
+                        if self.windowIndex != 2{
+                            self.windowIndex = 2;
+                        }
+                    }) {
+                        Image(systemName: "list.dash")
+                            .renderingMode(.original)
+                            .frame(width: 50,height:50)
+                            .opacity(self.windowIndex == 2 ? 1 : 0.5)
+                    }
+                    Spacer()
+                    Button(action: {
+                        if self.windowIndex != 3{
+                            self.windowIndex = 3;
+                        }
+                    }) {
+                        Image(systemName: "heart")
+                            .renderingMode(.original)
+                            .frame(width: 50,height:50)
+                            .opacity(self.windowIndex == 2 ? 1 : 0.5)
+                    }
+                    
+                }.frame(width:width - 100))
+        }.frame(height:50)
+        
+        
             
 
     }

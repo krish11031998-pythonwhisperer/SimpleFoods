@@ -7,7 +7,7 @@
 //
 
 import SwiftUI
-
+import ChameleonFramework
 struct ContentView: View {
     @State var windows : Int = 0;
     @State var deleteAll:Bool = false;
@@ -16,16 +16,40 @@ struct ContentView: View {
             VStack{
                 if self.windows == 0{
                     ScrollView(.vertical, showsIndicators: false){
+                        AnimatedWaves().frame(width:UIScreen.main.bounds.width)
+                            .overlay(
+                                Text(self.getTitle())
+                                    .font(.custom("Avenir Next", size: 40))
+                                    .fontWeight(.light)
+                                
+                                )
                         Spacer()
-                        Text("Hello Krish!").font(.custom("Avenir Next", size: 50))
-                        DifferentDiet()
-                        Divider().frame(width:UIScreen.main.bounds.width/1.25,height:5)
-                        FoodRow(type: "food", title: "pizza (Vegetarian)",imageStr: "pizza")
-                        Divider().frame(width:UIScreen.main.bounds.width/1.25,height:5)
-                        //                        FoodRow(type: "food", title: "pasta (Vegan)", cellType: "Large", q: "Pasta", health: .Vegan)
-                        //                        Divider().frame(width:UIScreen.main.bounds.width/1.25,height:5)
-//                        CuisineTypes(.Indian)
-//                        Divider().frame(width:UIScreen.main.bounds.width/1.25,height:5)
+                        HStack{
+                            Rectangle()
+                                .fill(Color(UIColor.flatLime()))
+                                .frame(width:UIScreen.main.bounds.width - 100,height: 150)
+                                .overlay(
+                                    VStack{
+                                        Text("Hello Krish!").font(.custom("Avenir Next", size: 35))
+                                            .fontWeight(.light)
+                                        Text("Check out our new Recipes!").font(.custom("Avenir Next", size: 15))
+                                            .fontWeight(.light)
+                                    }
+                                    
+                            ).clipShape(Corners(corner: [.topRight,.bottomRight], size: CGSize(width:45,height:70)))
+                            Spacer()
+                        }.padding(.top,-35)
+                            .padding(.bottom,-10)
+                        ZStack{
+                            Color(UIColor.flatLime())
+                            VStack{
+                                Spacer()
+                                DifferentDiet()
+                                Divider().frame(width:UIScreen.main.bounds.width/1.25,height:5)
+                                FoodRow(type: "food", title: "pizza (Vegetarian)",imageStr: "pizza")
+                                Divider().frame(width:UIScreen.main.bounds.width/1.25,height:5)
+                            }.background(Color.white).clipShape(Corners(corner: [.topLeft], size: CGSize(width:50,height:70)))
+                        }
                     }.animation(.spring())
                 }else if self.windows == 1{
                     Text("Search");
@@ -40,12 +64,21 @@ struct ContentView: View {
                     }.animation(.spring())
                     
                 }
+                HStack{
+                    Spacer()
+                    Tabs(windowIndex: self.$windows)
+                    Spacer()
+                }.background(Color.clear)
+                //                .edgesIgnoringSafeArea(.bottom)
+                //                    .navigationBarTitle(self.getTitle())
                 
-                Tabs(windowIndex: self.$windows)
-            }
-            .edgesIgnoringSafeArea(.bottom)
-            .navigationBarTitle(self.windows == 0 ? "Simple Foods" : self.windows == 1 ? "Search" : self.windows == 2 ? "Shopping List" : self.windows == 3 ? "Favorites" : "")
-        }
+            }.edgesIgnoringSafeArea(.all)
+            
+        }.navigationBarHidden(true)
+    }
+    
+    func getTitle() -> String{
+        return self.windows == 0 ? "Simple Foods" : self.windows == 1 ? "Search" : self.windows == 2 ? "Shopping List" : self.windows == 3 ? "Favorites" : ""
     }
     
     func heading() -> String{

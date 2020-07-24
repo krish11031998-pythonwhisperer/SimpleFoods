@@ -18,7 +18,7 @@
 		BC351C0B24B7C2CE00197C25 /* WebPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC351C0A24B7C2CE00197C25 /* WebPlayer.swift */; };
 		BC351C0D24B87B7F00197C25 /* TabButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC351C0C24B87B7F00197C25 /* TabButtons.swift */; };
 		BC351C0F24B8836A00197C25 /* SummaryBars.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC351C0E24B8836A00197C25 /* SummaryBars.swift */; };
-		BC351C1124B89BB000197C25 /* CircleCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC351C1024B89BB000197C25 /* CircleCurve.swift */; };
+		BC351C1124B89BB000197C25 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC351C1024B89BB000197C25 /* Main.swift */; };
 		BC351C1324B8ADEC00197C25 /* FavoriteRecipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC351C1224B8ADEC00197C25 /* FavoriteRecipes.swift */; };
 		BC351C1524B8B0A400197C25 /* DifferentDiet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC351C1424B8B0A400197C25 /* DifferentDiet.swift */; };
 		BC351C1724B8EF0900197C25 /* DietRecipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC351C1624B8EF0900197C25 /* DietRecipes.swift */; };
@@ -50,6 +50,9 @@
 		BCE0DEFB24A7ED2700E756A9 /* EdamamAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE0DEFA24A7ED2700E756A9 /* EdamamAPI.swift */; };
 		BCE0DEFD24A7EDEB00E756A9 /* EdamamData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE0DEFC24A7EDEB00E756A9 /* EdamamData.swift */; };
 		BCE0DEFF24A7F35300E756A9 /* EdamamEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE0DEFE24A7F35300E756A9 /* EdamamEnums.swift */; };
+		BCEC672324CB6A3C00797227 /* AnimatedWave.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC672224CB6A3C00797227 /* AnimatedWave.swift */; };
+		BCEC672524CB78E900797227 /* Titles.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCEC672424CB78E900797227 /* Titles.swift */; };
+		BCF5188524CB358900CF0C22 /* Stylings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF5188424CB358900CF0C22 /* Stylings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,7 +68,7 @@
 		BC351C0A24B7C2CE00197C25 /* WebPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebPlayer.swift; sourceTree = "<group>"; };
 		BC351C0C24B87B7F00197C25 /* TabButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButtons.swift; sourceTree = "<group>"; };
 		BC351C0E24B8836A00197C25 /* SummaryBars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryBars.swift; sourceTree = "<group>"; };
-		BC351C1024B89BB000197C25 /* CircleCurve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleCurve.swift; sourceTree = "<group>"; };
+		BC351C1024B89BB000197C25 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		BC351C1224B8ADEC00197C25 /* FavoriteRecipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRecipes.swift; sourceTree = "<group>"; };
 		BC351C1424B8B0A400197C25 /* DifferentDiet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifferentDiet.swift; sourceTree = "<group>"; };
 		BC351C1624B8EF0900197C25 /* DietRecipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DietRecipes.swift; sourceTree = "<group>"; };
@@ -99,6 +102,9 @@
 		BCE0DEFA24A7ED2700E756A9 /* EdamamAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamAPI.swift; sourceTree = "<group>"; };
 		BCE0DEFC24A7EDEB00E756A9 /* EdamamData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamData.swift; sourceTree = "<group>"; };
 		BCE0DEFE24A7F35300E756A9 /* EdamamEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamEnums.swift; sourceTree = "<group>"; };
+		BCEC672224CB6A3C00797227 /* AnimatedWave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedWave.swift; sourceTree = "<group>"; };
+		BCEC672424CB78E900797227 /* Titles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Titles.swift; sourceTree = "<group>"; };
+		BCF5188424CB358900CF0C22 /* Stylings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stylings.swift; sourceTree = "<group>"; };
 		C1F43F51CF454EA79B5541F6 /* Pods-SimpleFood.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleFood.release.xcconfig"; path = "Target Support Files/Pods-SimpleFood/Pods-SimpleFood.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -225,13 +231,16 @@
 				BC351C0A24B7C2CE00197C25 /* WebPlayer.swift */,
 				BC351C0C24B87B7F00197C25 /* TabButtons.swift */,
 				BC351C0E24B8836A00197C25 /* SummaryBars.swift */,
-				BC351C1024B89BB000197C25 /* CircleCurve.swift */,
+				BC351C1024B89BB000197C25 /* Main.swift */,
 				BC351C1424B8B0A400197C25 /* DifferentDiet.swift */,
 				BC351C1624B8EF0900197C25 /* DietRecipes.swift */,
 				BCCB029824B91B4F00053A85 /* FavoritePanel.swift */,
 				BCBE95D924C0C11300936D02 /* CuisineTypes.swift */,
 				BCAF940524C1BBDA00D8E422 /* SearchView.swift */,
 				BCAF940724C2E15D00D8E422 /* BingingBabish.swift */,
+				BCF5188424CB358900CF0C22 /* Stylings.swift */,
+				BCEC672224CB6A3C00797227 /* AnimatedWave.swift */,
+				BCEC672424CB78E900797227 /* Titles.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -384,7 +393,7 @@
 				BC0CB5E1249E376500FDF31B /* SRR.swift in Sources */,
 				BC868CDE24951ECB00BA67DF /* AppDelegate.swift in Sources */,
 				BC7ADE9B24A2576E00B3884B /* IngredientShoppingList.swift in Sources */,
-				BC351C1124B89BB000197C25 /* CircleCurve.swift in Sources */,
+				BC351C1124B89BB000197C25 /* Main.swift in Sources */,
 				BC4E731A24968E170012D0CD /* IngredientRow.swift in Sources */,
 				BC868CFA24952A3000BA67DF /* imageHelper.swift in Sources */,
 				BC3B3B3824A3645300047102 /* ShoppingListCard.swift in Sources */,
@@ -392,9 +401,11 @@
 				BC351C1724B8EF0900197C25 /* DietRecipes.swift in Sources */,
 				BC868CF82495293700BA67DF /* FoodCell.swift in Sources */,
 				BC0CB5DD249E242700FDF31B /* ButtonStylings.swift in Sources */,
+				BCF5188524CB358900CF0C22 /* Stylings.swift in Sources */,
 				BC351C1324B8ADEC00197C25 /* FavoriteRecipes.swift in Sources */,
 				BCE0DEFB24A7ED2700E756A9 /* EdamamAPI.swift in Sources */,
 				BC8B72F02495626C00AE719E /* FoodType.swift in Sources */,
+				BCEC672524CB78E900797227 /* Titles.swift in Sources */,
 				BC36EBCE24AA726B0047F44D /* LargeFoodCell.swift in Sources */,
 				BC351C0D24B87B7F00197C25 /* TabButtons.swift in Sources */,
 				BC3B3B3A24A3888100047102 /* PieChart.swift in Sources */,
@@ -415,6 +426,7 @@
 				BC868CF52495210F00BA67DF /* FoodData.swift in Sources */,
 				BC0CB5E5249E4ABC00FDF31B /* VideoPlayer.swift in Sources */,
 				BC8B487724A24C52008FDEEE /* BottomBar.swift in Sources */,
+				BCEC672324CB6A3C00797227 /* AnimatedWave.swift in Sources */,
 				BC314F2924AD18AC00732E3B /* DailyUse.swift in Sources */,
 				BC868CF324951EEC00BA67DF /* ForkifyAPI.swift in Sources */,
 			);

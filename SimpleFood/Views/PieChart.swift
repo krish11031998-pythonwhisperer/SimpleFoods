@@ -15,35 +15,59 @@ struct Nutrients{
 import SwiftUI
 
 struct PieChart: View {
-    var values : [Nutrients] = [];
+    var values : [Nutrients] = []
+    var legend:[String:Color] = ["protein":Color.green,"protein":Color.green,"protein":Color.green,"protein":Color.green,"protein":Color.green,"protein":Color.green]
+    
     var body: some View {
         VStack(alignment: .center){
-            Text("Nutrients Breakdown")
-                .font(.headline)
-                .padding(.bottom,50)
-//                .offset(x:0,y:-50)
-            Chart(values: self.values).padding(.top)
-        }.frame(width:200,height: 200)
-            .padding(.all,25.0)
+            Titles(title: "Nutrients Breakdown",imageStr: "pan")
+            HStack{
+                Chart(values: self.values).padding(.top).frame(width:250,height:250)
+                VStack(alignment: .leading){
+                    ForEach(Array(self.legend.keys).sorted(), id: \.self){(key) in
+                        HStack{
+                            Circle()
+                                .fill(self.legend[key] ?? Color.black)
+                                .frame(width:10,height: 10)
+                                
+                            Text(key.capitalized)
+                                .font(.subheadline)
+                        }
+                    }
+                    
+                }.padding(.horizontal)
+            }
+            
+        }.padding(.all,25.0)
     }
 }
 
 
 struct Chart : View{
+     @Environment(\.colorScheme) var colorScheme
     var values:[Nutrients]
     var body : some View{
-        GeometryReader{g in
-            
-            ZStack{
-                
-                ForEach(0..<self.values.count, id: \.self){i in
-                    
-                    Arc(data: self.values, index: i, center: CGPoint(x: g.frame(in: .local).width/2, y: g.frame(in: .local).height/2))
+        VStack{
+            GeometryReader{g in
+                ZStack{
+                    ZStack{
+                        
+                        ForEach(0..<self.values.count, id: \.self){i in
+                            
+                            Arc(data: self.values, index: i, center: CGPoint(x: g.frame(in: .local).width/2, y: g.frame(in: .local).height/2))
+                        }
+                        
+                    }.padding(.leading,10).padding(.top,10)
+                    Circle()
+                    .fill(self.colorScheme == .dark ? Color.black : Color.white)
+                    .shadow(radius: 2, x: 1, y: 1)
+                    .frame(width:85,height:85)
                 }
                 
+                
             }
-            
         }
+        
     }
 }
 
@@ -57,7 +81,7 @@ struct Arc : View{
         Path{path in
             
             path.move(to: self.center)
-            path.addArc(center: self.center, radius: 100, startAngle: .init(degrees :self.findAngle(type: "from")), endAngle: .init(degrees :self.findAngle(type: "to")), clockwise: false)
+            path.addArc(center: self.center, radius: 90, startAngle: .init(degrees :self.findAngle(type: "from")), endAngle: .init(degrees :self.findAngle(type: "to")), clockwise: false)
         }.fill(self.data[index].color)
     }
     

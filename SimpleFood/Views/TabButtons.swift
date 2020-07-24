@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftUI
+import ChameleonFramework
 
 struct TabButtons : View{
     @Binding var buttonOne:Bool;
@@ -17,7 +18,7 @@ struct TabButtons : View{
             Spacer().frame(height:20)
             HStack(alignment: .center, content: {
                 Buttons(main: self.$buttonOne, other: self.$buttonTwo,title: "Overview")
-                Spacer()
+                Spacer().frame(width:100)
                 Buttons(main: self.$buttonTwo, other: self.$buttonOne,title: "Recipe")
             }).padding(.horizontal,10)
             Spacer().frame(height:20)
@@ -39,10 +40,18 @@ struct Buttons:View{
         }) {
             RoundedRectangle(cornerRadius: 20)
             .frame(width: width/3, height: 45)
-            .foregroundColor(self.main ? .red : .clear)
+                .foregroundColor(self.main ? Color(UIColor.flatMint()) : .clear)
                 .padding(.horizontal,2.5)
                 .overlay(Text(self.title)
-                .foregroundColor(self.main ? .white : .red))
+                .foregroundColor(self.main ? .white : Color(UIColor.flatMint())))
         }
+    }
+}
+
+struct TabButtons_Previews: PreviewProvider {
+    @State static var B1:Bool = true;
+    @State static var B2:Bool = false;
+    static var previews: some View {
+        TabButtons(buttonOne: TabButtons_Previews.$B1, buttonTwo: TabButtons_Previews.$B2)
     }
 }

@@ -15,7 +15,7 @@ struct SummaryBars:View{
     var weight:Float;
     
     var body : some View{
-        HStack(alignment: .center, spacing: 5) {
+        HStack(alignment: .center, spacing: 20) {
             InfoBars(icon: "person.fill", title: "Yields", value: self.yeilds,color:Color(UIColor.flatLime()))
             InfoBars(icon: "clock.fill", title: "Time", value: self.time,color:Color(UIColor.flatOrange()))
             InfoBars(icon: "gauge", title: "Weight", value: self.weight,color:Color(UIColor.flatMint()))
@@ -31,28 +31,29 @@ struct InfoBars : View{
     var value:Any?;
     var color: Color
     var body: some View{
-        RoundedRectangle(cornerRadius: 20)
-            .frame(width:100,height: 100)
-            .foregroundColor(color)
-            .overlay(
-                VStack(alignment: .center, spacing: 2.5, content: {
-                    HStack{
-                        Text(self.title)
-                            .font(.system(size: 12, weight: .medium, design: .serif))
-                        .foregroundColor(.black)
-                        Image(uiImage:UIImage(systemName: self.icon)!)
-                        .resizable()
-                        .frame(width:10,height:10)
-                    }
+        HStack{
+           RoundedRectangle(cornerRadius: 5)
+            .frame(width:40,height: 40)
+            .foregroundColor(self.color.opacity(0.95))
+            .shadow(radius: 2.5, x: 2.5, y: 2.5)
+            .overlay(Image(uiImage:UIImage(systemName: self.icon)!)
+                    .resizable()
+                    .foregroundColor(Color.white)
+                    .frame(width:20,height:20))
+            Spacer().frame(width:7.5)
+            VStack{
+                VStack(spacing:10){
                     
-                    Spacer().frame(height:10)
-                    HStack(alignment: .center, spacing: 7.5) {
-                        
-                        Text(self.getValue())
-                        .foregroundColor(.black)
-                    }
-                    })
-        ).opacity(0.75)
+                    Text(self.title)
+                        .font(.custom("Avenir Next", size: 15))
+//                    .foregroundColor(.black)
+                    Text(self.getValue())
+//                    .foregroundColor(.black)
+                        .font(.custom("Avenir Next", size: 12.5))
+                    
+                }
+            }
+        }.frame(width:width/3.25)
     }
     
     func getValue() -> String{
