@@ -12,21 +12,34 @@ struct SRR: View {
     @Environment(\.colorScheme) var colorScheme
     var key:String;
     var value:Int;
-    var color:UIColor = UIColor.flatWatermelon()
+    var colorMain:UIColor = UIColor.flatWatermelon()
+    var colorSecondary:UIColor = UIColor.flatWatermelonDark()
     var unit:String;
     var max:Int = 100;
+    var cardColor: LinearGradient{
+        get{
+            return LinearGradient(gradient: Gradient(colors:[Color(colorMain), Color(colorSecondary)]), startPoint: .top, endPoint: .bottom)
+        }
+    }
     var body: some View {
         ZStack(alignment: .center){
             RoundedRectangle(cornerRadius: 10)
+                .fill(self.cardColor)
                 .frame(width:UIScreen.main.bounds.size.width/2.25, height: 200)
-                .foregroundColor(Color(self.colorScheme == .dark ? .black : .white).opacity(0.15))
-                .blur(radius: 5)
                 .shadow(radius: 0.5, x: 2.5, y: 2.5)
-//                .shadow(radius: 2.5, x: -1, y: -1)
             
             RoundedRectangle(cornerRadius: 10)
                 .frame(width:UIScreen.main.bounds.size.width/2, height: 200)
                 .foregroundColor(Color.clear)
+                .overlay(
+                    ZStack{
+                        GeometryReader{g in
+                            TopArc(center: CGPoint(x: g.frame(in: .local).width, y: g.frame(in: .local).height/10),color: self.colorSecondary)
+                        }.padding(.top,-20).padding(.trailing,10).clipShape(Corners(corner: [.topRight], size: CGSize(width: 30,height: 30)))
+                        GeometryReader{g in
+                            TopArc(center: CGPoint(x: g.frame(in: .local).width, y: g.frame(in: .local).height/10),color: self.colorSecondary, radius: 50,opacity: 0.4)
+                        }.padding(.top,-20).padding(.trailing,10).clipShape(Corners(corner: [.topRight], size: CGSize(width: 30,height: 30)))
+                    }.padding(.trailing,1))
             RoundedRectangle(cornerRadius: 10)
                 .frame(width:UIScreen.main.bounds.size.width/2, height: 200)
                 .foregroundColor(.clear)
@@ -36,25 +49,18 @@ struct SRR: View {
                             .font(.custom("Avenir", size: 20))
                             .fontWeight(.bold)
                             .fixedSize(horizontal: true, vertical: true)
-                            .foregroundColor(Color(self.color))
+                            .foregroundColor(Color.white)
                             .padding(.leading)
                         Spacer()
-                        Circle()
-                            .fill(Color.white)
-                            .frame(width:25,height: 25)
-                            .opacity(0.5)
-                            .overlay(
-                                Circle()
-                                    .fill(Color(self.color))
-                                    .frame(width:15,height: 15)
-                        ).padding(.trailing)
+                        
+                        
                         
                     }.frame(width: UIScreen.main.bounds.size.width/2.25).padding(.bottom).padding(.leading)
                     HStack{
                         Spacer()
                         ZStack(alignment: .center){
                             Outline()
-                            Label(value:"\(self.value)",unit:self.unit,color:self.color)
+                            Label(value:"\(self.value)",unit:self.unit,color:self.colorMain)
                             ProgressOutline(percent:self.value)
                         }
                         Spacer()
@@ -65,15 +71,15 @@ struct SRR: View {
                             Spacer()
                             Text("Daily Max : ")
                                 .font(.custom("Avenir", size: 15))
-                                .foregroundColor(Color(self.color))
+                                .foregroundColor(Color.white)
                                 .fontWeight(.medium)
                             Text("\(self.max) \(self.unit)")
                                 .font(.custom("Avenir", size: 12.5))
-                                .foregroundColor(Color(self.color))
+                                .foregroundColor(Color.white)
                                 .fontWeight(.medium)
                             Spacer()
                         }
-
+                        
                     }
                 }.padding(.vertical))
             
@@ -90,10 +96,10 @@ struct Label:View{
             HStack{
                 Text("\(value)")
                     .font(.system(size: 25, weight: .semibold, design: .rounded))
-                    .foregroundColor(Color(self.color))
+                    .foregroundColor(Color.white)
                 Text("\(unit.trimmingCharacters(in: .whitespacesAndNewlines))")
                     .font(.system(size: 15, weight: .semibold, design: .rounded))
-                    .foregroundColor(Color(self.color))
+                    .foregroundColor(Color.white)
             }
         }
     }
@@ -113,7 +119,7 @@ struct ProgressOutline: View{
                     Circle()
                         .trim(from:0 , to : CGFloat(Double(percent)*0.01))
                         .stroke(style: StrokeStyle(lineWidth: 7.5, lineCap: .round, lineJoin: .round))
-                        .fill(AngularGradient(gradient: .init(colors: [Color(UIColor.flatMint()),Color(UIColor.flatRed())]) , center: .center, startAngle: .zero , endAngle: .init(degrees: 360)))
+                        .fill(AngularGradient(gradient: .init(colors: [Color(UIColor.flatMint())]) , center: .center, startAngle: .zero , endAngle: .init(degrees: 360)))
                     
             ).animation(.spring(response: 2.0, dampingFraction: 1.0, blendDuration: 1.0))
         }

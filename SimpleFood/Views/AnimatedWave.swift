@@ -13,12 +13,12 @@ struct AnimatedWaves: View {
     var body: some View {
         VStack{
             ZStack(alignment: .top){
-                Wave(yOffset: self.animate ? 0.1 :  -0.1)
+                Wave(yOffset: self.animate ? 0.5 :  -0.5)
                     .frame(height:180)
                     .opacity(0.8)
                     .foregroundColor(Color(UIColor.flatWatermelon()))
                     .animation(Animation.easeOut(duration: 2.5).repeatForever(autoreverses: true))
-                Wave(yOffset: self.animate ? -0.25 : 0.25)
+                Wave(yOffset: self.animate ? -0.5 : 0.5)
                     .frame(height:170)
                     .opacity(0.8)
                     .foregroundColor(Color(UIColor.flatWatermelon()))

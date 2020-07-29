@@ -50,7 +50,7 @@ struct FoodRow: View {
             ScrollView(.horizontal, showsIndicators: false, content: {
                 HStack(alignment: .top){
                     if type == "food"{
-                        ForEach(self.FDM.result){(food) in
+                        ForEach(self.FDM.result.count > 0 ? self.FDM.result : edamamExamples){(food) in
                             if self.cellType == "SmallCell"{
                                 FoodCell(food: food.recipe,type: "normal")
                             }

@@ -16,6 +16,13 @@ struct HealthwID:Identifiable{
 struct DifferentDiet: View {
     var types:[Health] = [.Vegan,.Vegetarian,.Keto,.Eggs,.Dairy,.No_sugar]
     var imagesCell:[Health:String] = [.Vegan:"broccoli",.Vegetarian:"cauliflower",.Keto:"salad",.Eggs:"egg",.Dairy:"potatoes-1",.No_sugar:"honey"]
+    var colors:[Health:[Color]] = [.Vegan: [Color(UIColor.flatWatermelon()),Color(UIColor.flatWatermelonDark())],
+        .Vegetarian: [Color(UIColor.flatSkyBlue()),Color(UIColor.flatSkyBlueDark())],
+        .Keto: [Color(UIColor.flatMint()),Color(UIColor.flatMintDark())],
+        .Eggs: [Color(UIColor.flatOrange()),Color(UIColor.flatOrangeDark())],
+        .Dairy: [Color(UIColor.flatSand()),Color(UIColor.flatSandDark())],
+        .No_sugar : [Color(UIColor.flatYellow()),Color(UIColor.flatYellowDark())]
+    ]
     var formattedTypes:[HealthwID]{
         get{
             var result:[HealthwID] = [];
@@ -41,8 +48,8 @@ struct DifferentDiet: View {
         VStack(alignment: .center){
             ForEach(self.formattedTypes){(hID) in
                 HStack(spacing: 5){
-                    DietCell(title: hID.health[0].rawValue,imageStr: self.imagesCell[hID.health[0]] ?? "")
-                    DietCell(title:hID.health[1].rawValue, imageStr: self.imagesCell[hID.health[1]] ?? "")
+                    DietCell(title: hID.health[0].rawValue,color:self.colors[hID.health[0]]!,imageStr: self.imagesCell[hID.health[0]] ?? "")
+                    DietCell(title:hID.health[1].rawValue, color: self.colors[hID.health[1]]!,imageStr: self.imagesCell[hID.health[1]] ?? "")
                 }
             }
         }
@@ -51,13 +58,13 @@ struct DifferentDiet: View {
 
 struct DietCell:View{
     var title:String;
-    var color:UIColor = UIColor.randomFlat();
+    var color:[Color];
     var imageStr:String;
     var body: some View{
         NavigationLink(destination:DietRecipes(self.title)){
             RoundedRectangle(cornerRadius: 20)
+                .fill(LinearGradient(gradient: .init(colors: self.color), startPoint: .topLeading, endPoint: .bottomTrailing))
                 .frame(width:width/2,height:100)
-                .foregroundColor(.gray)
                 .opacity(0.5)
                 .overlay(
                     HStack{
@@ -68,7 +75,7 @@ struct DietCell:View{
                         Text(self.title.capitalized)
                             .font(.custom("Avenir Next", size: 12.5))
                             .fontWeight(.medium)
-                            .foregroundColor(.white)
+                            .foregroundColor(.black)
                 })
         }
         

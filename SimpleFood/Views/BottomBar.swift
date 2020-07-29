@@ -20,6 +20,8 @@ struct BottomBar: View {
             }
             else if self.window == 2{
                 Text("window 3")
+            }else if self.window == 3{
+                Text("window 4")
             }
             Spacer()
             Tabs(windowIndex: self.$window)
@@ -80,7 +82,7 @@ struct Tabs : View{
                         Image(systemName: "heart")
                             .renderingMode(.original)
                             .frame(width: 50,height:50)
-                            .opacity(self.windowIndex == 2 ? 1 : 0.5)
+                            .opacity(self.windowIndex == 3 ? 1 : 0.5)
                     }
                     
                 }.frame(width:width - 100))

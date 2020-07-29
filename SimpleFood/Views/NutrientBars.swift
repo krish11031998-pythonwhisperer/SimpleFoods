@@ -37,14 +37,14 @@ struct NutrientBars: View {
             
             VStack(alignment: .center, spacing: 10){
                 
-                HStack(spacing:0){
-                    SRR(key: "Fat", value: Int(self.nutrition_info["Fat"]?["value"] ?? Int(0.0)), color: FlatRed(),unit: "g" , max: Int(self.nutrition_info["Fat"]?["max"] ?? Int(0.0)))
-                    SRR(key: "Protein", value: Int(self.nutrition_info["Protein"]?["value"] ?? Int(0.0)), color:FlatGreenDark(),unit: "g",max: Int(self.nutrition_info["Protein"]?["max"] ?? Int(0.0)));
+                HStack(spacing:10){
+                    WaveFillCards(key: "Fat", value: Int(self.nutrition_info["Fat"]?["value"] ?? Int(0.0)), colorMain: FlatWatermelon(), colorSecondary: FlatWatermelonDark(),unit: "g" , max: Int(self.nutrition_info["Fat"]?["max"] ?? Int(0.0)))
+                    WaveFillCards(key: "Protein", value: Int(self.nutrition_info["Protein"]?["value"] ?? Int(0.0)), colorMain: FlatTeal() ,colorSecondary: FlatTealDark(),unit: "g",max: Int(self.nutrition_info["Protein"]?["max"] ?? Int(0.0)));
                     
                 }
-                HStack(spacing:0){
-                    SRR(key: "Carbs", value: Int(self.nutrition_info["Carbs"]?["value"] ?? Int(0.0)), color: FlatSkyBlueDark(),unit: "g",max: Int(self.nutrition_info["Carbs"]?["max"] ?? Int(0.0)));
-                    SRR(key: "Fiber", value: Int(self.nutrition_info["Fiber"]?["value"] ?? Int(0.0)), color: FlatBlue(),unit: "g",max: Int(self.nutrition_info["Fiber"]?["max"] ?? Int(0.0)));
+                HStack(spacing:10){
+                    WaveFillCards(key: "Carbs", value: Int(self.nutrition_info["Carbs"]?["value"] ?? Int(0.0)), colorMain:FlatSkyBlue(), colorSecondary: FlatSkyBlueDark(),unit: "g",max: Int(self.nutrition_info["Carbs"]?["max"] ?? Int(0.0)));
+                    WaveFillCards(key: "Fiber", value: Int(self.nutrition_info["Fiber"]?["value"] ?? Int(0.0)), colorMain: FlatBlue() , colorSecondary: FlatBlueDark(),unit: "g",max: Int(self.nutrition_info["Fiber"]?["max"] ?? Int(0.0)));
                 }
 //                HStack(spacing:0){
 //                    

@@ -27,6 +27,7 @@ class CachedRecipes{
     }
 }
 
+var edamamExamples:[ERecipeID] = [ERecipeID(id: 1, recipe: edamamExample!),ERecipeID(id: 2, recipe: edamamExample!)]
 struct EdamamRecipe:Codable{
     var label:String?;
     var image:String?;

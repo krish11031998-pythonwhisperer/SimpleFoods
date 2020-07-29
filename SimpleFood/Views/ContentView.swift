@@ -8,9 +8,23 @@
 
 import SwiftUI
 import ChameleonFramework
+
+
 struct ContentView: View {
+    @Environment(\.colorScheme) var colorScheme
     @State var windows : Int = 0;
     @State var deleteAll:Bool = false;
+    var animatedTopBar:CGFloat{
+        get{
+            return 200
+        }
+    }
+    var Title:String{
+        get{
+            return self.windows == 0 ? "Simple Foods" : self.windows == 1 ? "Search" : self.windows == 2 ? "Shopping List" : self.windows == 3 ? "Favorites" : ""
+        }
+    }
+    
     var body: some View {
         NavigationView{
             VStack{
@@ -18,11 +32,11 @@ struct ContentView: View {
                     ScrollView(.vertical, showsIndicators: false){
                         AnimatedWaves().frame(width:UIScreen.main.bounds.width)
                             .overlay(
-                                Text(self.getTitle())
+                                Text(self.Title)
                                     .font(.custom("Avenir Next", size: 40))
                                     .fontWeight(.light)
                                 
-                                )
+                        )
                         Spacer()
                         HStack{
                             Rectangle()
@@ -34,7 +48,7 @@ struct ContentView: View {
                                             .fontWeight(.light)
                                         Text("Check out our new Recipes!").font(.custom("Avenir Next", size: 15))
                                             .fontWeight(.light)
-                                    }
+                                    }.padding(.trailing)
                                     
                             ).clipShape(Corners(corner: [.topRight,.bottomRight], size: CGSize(width:45,height:70)))
                             Spacer()
@@ -46,21 +60,51 @@ struct ContentView: View {
                                 Spacer()
                                 DifferentDiet()
                                 Divider().frame(width:UIScreen.main.bounds.width/1.25,height:5)
-                                FoodRow(type: "food", title: "pizza (Vegetarian)",imageStr: "pizza")
+                                FoodRow(type: "food", title: "Pasta",imageStr: "pasta")
                                 Divider().frame(width:UIScreen.main.bounds.width/1.25,height:5)
-                            }.background(Color.white).clipShape(Corners(corner: [.topLeft], size: CGSize(width:50,height:70)))
+                                MultipleMenu()
+                            }.background(self.colorScheme == .dark ? Color.black : Color.white).clipShape(Corners(corner: [.topLeft], size: CGSize(width:50,height:70)))
                         }
                     }.animation(.spring())
                 }else if self.windows == 1{
-                    Text("Search");
+                    VStack {
+                        AnimatedWaves().frame(width:UIScreen.main.bounds.width)
+                            .overlay(
+                                Text(self.Title)
+                                    .font(.custom("Avenir Next", size: 40))
+                                    .fontWeight(.light)
+                                
+                        )
+                        Spacer()
+                        Text("Search")
+                    };
                     Spacer()
                 }else if self.windows == 2{
                     ScrollView(.vertical, showsIndicators: false){
-                        IngredientShoppingList()
+                        
+                        VStack {
+                            AnimatedWaves().frame(width:UIScreen.main.bounds.width)
+                                .overlay(
+                                    Text(self.Title)
+                                        .font(.custom("Avenir Next", size: 40))
+                                        .fontWeight(.light)
+                                    
+                            )
+                            IngredientShoppingList()
+                        }
                     }.animation(.spring())
                 }else if self.windows == 3{
                     ScrollView(.vertical, showsIndicators: false){
-                        FavoritePanel()
+                        VStack {
+                            AnimatedWaves().frame(width:UIScreen.main.bounds.width)
+                                .overlay(
+                                    Text(self.Title)
+                                        .font(.custom("Avenir Next", size: 40))
+                                        .fontWeight(.light)
+                                    
+                            )
+                            FavoritePanel()
+                        }
                     }.animation(.spring())
                     
                 }
@@ -68,17 +112,11 @@ struct ContentView: View {
                     Spacer()
                     Tabs(windowIndex: self.$windows)
                     Spacer()
-                }.background(Color.clear)
-                //                .edgesIgnoringSafeArea(.bottom)
-                //                    .navigationBarTitle(self.getTitle())
+                }.padding(.bottom).background(Color.clear)
                 
             }.edgesIgnoringSafeArea(.all)
             
         }.navigationBarHidden(true)
-    }
-    
-    func getTitle() -> String{
-        return self.windows == 0 ? "Simple Foods" : self.windows == 1 ? "Search" : self.windows == 2 ? "Shopping List" : self.windows == 3 ? "Favorites" : ""
     }
     
     func heading() -> String{

@@ -102,7 +102,7 @@ struct IngredientRow: View {
                             RoundedRectangle(cornerRadius: 20)
                                 .frame(minWidth: cellWidth, idealWidth: cellWidth, maxWidth: cellWidth, minHeight: 75, idealHeight: 100, maxHeight: 250, alignment: .center)
                                 .foregroundColor(Color(self.color))
-                                .shadow(radius: 2, x: 2, y: 2)
+                                .shadow(color: Color(self.color == UIColor.white ? UIColor.black : UIColor.white).opacity(0.5),radius: 2, x: 2, y: 2)
                             ZStack{
                                 HStack(alignment: .center, spacing: 10){
                                     Button(action: {

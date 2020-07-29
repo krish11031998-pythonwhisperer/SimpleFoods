@@ -118,6 +118,7 @@ struct FoodDetailView: View {
         VStack{
             VStack(alignment: .center){
                 //                ZStack(alignment:.bottom){
+                Spacer().frame(height: 50)
                 ZStack(alignment: .top){
                     Image(uiImage: self.imageManager.image)
                     .resizable()
@@ -134,14 +135,14 @@ struct FoodDetailView: View {
                 }
                 
             HStack{
-                Spacer()
+                Spacer(minLength: 50)
                 VStack{
                     Text(food.label?.capitalized ?? "No Title")
                         .foregroundColor(.white)
                         .font(.custom("Avenir Next", size: 30))
                         .fixedSize(horizontal: false, vertical: true)
                 }
-                Spacer()
+                Spacer(minLength: 50)
             }.padding(.leading,5)
                 SummaryBars(yeilds: self.food.yield ?? 0, time: (self.food.totalTime ?? 0)/60, weight: (self.food.totalWeight ?? 0.0)/1000.0).padding(.horizontal,25).padding(.bottom)
                 TabButtons(buttonOne: self.$showSummary, buttonTwo: self.$showRecipes);
@@ -149,7 +150,6 @@ struct FoodDetailView: View {
             }
             .padding(.top,25)
             .background(LinearGradient(gradient: Gradient(colors: [Color(UIColor.flatWatermelon()).opacity(0.75),Color(UIColor.flatWatermelonDark())]), startPoint: .top, endPoint: .bottom))
-            .padding(.horizontal)
             .clipShape(Corners(corner: [.bottomRight], size: CGSize(width: 100, height: 100)))
             
             ZStack{
@@ -186,7 +186,7 @@ struct FoodDetailView: View {
                         
                         
                     }
-                }.background(Color.white).clipShape(Corners(corner: [.topLeft], size: CGSize(width:100,height:100)))
+                }.background(self.colorScheme == .dark ? Color.black : Color.white).clipShape(Corners(corner: [.topLeft], size: CGSize(width:100,height:100)))
             }
         }
     }

@@ -12,6 +12,10 @@
 		BC0CB5DF249E33A600FDF31B /* NutrientBars.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0CB5DE249E33A600FDF31B /* NutrientBars.swift */; };
 		BC0CB5E1249E376500FDF31B /* SRR.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0CB5E0249E376500FDF31B /* SRR.swift */; };
 		BC0CB5E5249E4ABC00FDF31B /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC0CB5E4249E4ABC00FDF31B /* VideoPlayer.swift */; };
+		BC1BF17D24CCB0C1002F0B86 /* SideTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1BF17C24CCB0C1002F0B86 /* SideTabBar.swift */; };
+		BC1BF17F24CCBA4C002F0B86 /* FoodVerticalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1BF17E24CCBA4C002F0B86 /* FoodVerticalCell.swift */; };
+		BC1BF18124CCBD54002F0B86 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1BF18024CCBD54002F0B86 /* Color.swift */; };
+		BC1BF18324CCC7E2002F0B86 /* MultipleMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC1BF18224CCC7E2002F0B86 /* MultipleMenu.swift */; };
 		BC303472249D5FAA0084AF6B /* TastyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC303471249D5FAA0084AF6B /* TastyAPI.swift */; };
 		BC303474249D62120084AF6B /* TastyFoodData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC303473249D62120084AF6B /* TastyFoodData.swift */; };
 		BC314F2924AD18AC00732E3B /* DailyUse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC314F2824AD18AC00732E3B /* DailyUse.swift */; };
@@ -35,18 +39,20 @@
 		BC868CE424951ECE00BA67DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC868CE324951ECE00BA67DF /* Assets.xcassets */; };
 		BC868CE724951ECE00BA67DF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC868CE624951ECE00BA67DF /* Preview Assets.xcassets */; };
 		BC868CEA24951ECE00BA67DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC868CE824951ECE00BA67DF /* LaunchScreen.storyboard */; };
-		BC868CF324951EEC00BA67DF /* ForkifyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC868CF224951EEC00BA67DF /* ForkifyAPI.swift */; };
-		BC868CF52495210F00BA67DF /* FoodData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC868CF42495210F00BA67DF /* FoodData.swift */; };
 		BC868CF82495293700BA67DF /* FoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC868CF72495293700BA67DF /* FoodCell.swift */; };
 		BC868CFA24952A3000BA67DF /* imageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC868CF924952A3000BA67DF /* imageHelper.swift */; };
 		BC8B487724A24C52008FDEEE /* BottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8B487624A24C52008FDEEE /* BottomBar.swift */; };
 		BC8B72EC2495337500AE719E /* FoodRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8B72EB2495337500AE719E /* FoodRow.swift */; };
 		BC8B72EE24955E9A00AE719E /* TypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8B72ED24955E9A00AE719E /* TypeCell.swift */; };
-		BC8B72F02495626C00AE719E /* FoodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC8B72EF2495626C00AE719E /* FoodType.swift */; };
+		BCA859CC24D212B000214D48 /* SAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA859CB24D212B000214D48 /* SAPI.swift */; };
+		BCA859CE24D212DD00214D48 /* SData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA859CD24D212DD00214D48 /* SData.swift */; };
+		BCA859D024D21F4700214D48 /* Loopable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCA859CF24D21F4700214D48 /* Loopable.swift */; };
 		BCAF940624C1BBDA00D8E422 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAF940524C1BBDA00D8E422 /* SearchView.swift */; };
 		BCAF940824C2E15D00D8E422 /* BingingBabish.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAF940724C2E15D00D8E422 /* BingingBabish.swift */; };
 		BCBE95DA24C0C11300936D02 /* CuisineTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBE95D924C0C11300936D02 /* CuisineTypes.swift */; };
 		BCCB029924B91B4F00053A85 /* FavoritePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCB029824B91B4F00053A85 /* FavoritePanel.swift */; };
+		BCD22B7E24D0C96900BB30E5 /* WaveCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD22B7D24D0C96900BB30E5 /* WaveCircle.swift */; };
+		BCD22B8024D0CDE700BB30E5 /* WaveFillCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCD22B7F24D0CDE700BB30E5 /* WaveFillCards.swift */; };
 		BCE0DEFB24A7ED2700E756A9 /* EdamamAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE0DEFA24A7ED2700E756A9 /* EdamamAPI.swift */; };
 		BCE0DEFD24A7EDEB00E756A9 /* EdamamData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE0DEFC24A7EDEB00E756A9 /* EdamamData.swift */; };
 		BCE0DEFF24A7F35300E756A9 /* EdamamEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE0DEFE24A7F35300E756A9 /* EdamamEnums.swift */; };
@@ -62,6 +68,10 @@
 		BC0CB5DE249E33A600FDF31B /* NutrientBars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientBars.swift; sourceTree = "<group>"; };
 		BC0CB5E0249E376500FDF31B /* SRR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRR.swift; sourceTree = "<group>"; };
 		BC0CB5E4249E4ABC00FDF31B /* VideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
+		BC1BF17C24CCB0C1002F0B86 /* SideTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideTabBar.swift; sourceTree = "<group>"; };
+		BC1BF17E24CCBA4C002F0B86 /* FoodVerticalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodVerticalCell.swift; sourceTree = "<group>"; };
+		BC1BF18024CCBD54002F0B86 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		BC1BF18224CCC7E2002F0B86 /* MultipleMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleMenu.swift; sourceTree = "<group>"; };
 		BC303471249D5FAA0084AF6B /* TastyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TastyAPI.swift; sourceTree = "<group>"; };
 		BC303473249D62120084AF6B /* TastyFoodData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TastyFoodData.swift; sourceTree = "<group>"; };
 		BC314F2824AD18AC00732E3B /* DailyUse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyUse.swift; sourceTree = "<group>"; };
@@ -87,18 +97,20 @@
 		BC868CE624951ECE00BA67DF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BC868CE924951ECE00BA67DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BC868CEB24951ECE00BA67DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BC868CF224951EEC00BA67DF /* ForkifyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForkifyAPI.swift; sourceTree = "<group>"; };
-		BC868CF42495210F00BA67DF /* FoodData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodData.swift; sourceTree = "<group>"; };
 		BC868CF72495293700BA67DF /* FoodCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCell.swift; sourceTree = "<group>"; };
 		BC868CF924952A3000BA67DF /* imageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageHelper.swift; sourceTree = "<group>"; };
 		BC8B487624A24C52008FDEEE /* BottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBar.swift; sourceTree = "<group>"; };
 		BC8B72EB2495337500AE719E /* FoodRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRow.swift; sourceTree = "<group>"; };
 		BC8B72ED24955E9A00AE719E /* TypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeCell.swift; sourceTree = "<group>"; };
-		BC8B72EF2495626C00AE719E /* FoodType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodType.swift; sourceTree = "<group>"; };
+		BCA859CB24D212B000214D48 /* SAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAPI.swift; sourceTree = "<group>"; };
+		BCA859CD24D212DD00214D48 /* SData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SData.swift; sourceTree = "<group>"; };
+		BCA859CF24D21F4700214D48 /* Loopable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loopable.swift; sourceTree = "<group>"; };
 		BCAF940524C1BBDA00D8E422 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		BCAF940724C2E15D00D8E422 /* BingingBabish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BingingBabish.swift; sourceTree = "<group>"; };
 		BCBE95D924C0C11300936D02 /* CuisineTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuisineTypes.swift; sourceTree = "<group>"; };
 		BCCB029824B91B4F00053A85 /* FavoritePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePanel.swift; sourceTree = "<group>"; };
+		BCD22B7D24D0C96900BB30E5 /* WaveCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveCircle.swift; sourceTree = "<group>"; };
+		BCD22B7F24D0CDE700BB30E5 /* WaveFillCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveFillCards.swift; sourceTree = "<group>"; };
 		BCE0DEFA24A7ED2700E756A9 /* EdamamAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamAPI.swift; sourceTree = "<group>"; };
 		BCE0DEFC24A7EDEB00E756A9 /* EdamamData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamData.swift; sourceTree = "<group>"; };
 		BCE0DEFE24A7F35300E756A9 /* EdamamEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdamamEnums.swift; sourceTree = "<group>"; };
@@ -132,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				BC0CB5DC249E242700FDF31B /* ButtonStylings.swift */,
+				BC1BF18024CCBD54002F0B86 /* Color.swift */,
 			);
 			path = stylings;
 			sourceTree = "<group>";
@@ -143,16 +156,6 @@
 				BC303473249D62120084AF6B /* TastyFoodData.swift */,
 			);
 			path = Tasty;
-			sourceTree = "<group>";
-		};
-		BC44591324A65AFB009C4529 /* Forkify */ = {
-			isa = PBXGroup;
-			children = (
-				BC868CF224951EEC00BA67DF /* ForkifyAPI.swift */,
-				BC868CF42495210F00BA67DF /* FoodData.swift */,
-				BC8B72EF2495626C00AE719E /* FoodType.swift */,
-			);
-			path = Forkify;
 			sourceTree = "<group>";
 		};
 		BC868CD124951ECB00BA67DF = {
@@ -201,8 +204,8 @@
 		BC868CF124951ED800BA67DF /* Data Manager */ = {
 			isa = PBXGroup;
 			children = (
+				BCA859CA24D2129200214D48 /* SpoonacularAPI */,
 				BCE0DEF924A7ED0900E756A9 /* Edamam */,
-				BC44591324A65AFB009C4529 /* Forkify */,
 				BC44591224A65ADF009C4529 /* Tasty */,
 				BC7ADE9C24A25A1600B3884B /* ShoppingList.swift */,
 				BC351C1224B8ADEC00197C25 /* FavoriteRecipes.swift */,
@@ -241,6 +244,11 @@
 				BCF5188424CB358900CF0C22 /* Stylings.swift */,
 				BCEC672224CB6A3C00797227 /* AnimatedWave.swift */,
 				BCEC672424CB78E900797227 /* Titles.swift */,
+				BC1BF17C24CCB0C1002F0B86 /* SideTabBar.swift */,
+				BC1BF17E24CCBA4C002F0B86 /* FoodVerticalCell.swift */,
+				BC1BF18224CCC7E2002F0B86 /* MultipleMenu.swift */,
+				BCD22B7D24D0C96900BB30E5 /* WaveCircle.swift */,
+				BCD22B7F24D0CDE700BB30E5 /* WaveFillCards.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -249,8 +257,18 @@
 			isa = PBXGroup;
 			children = (
 				BC868CF924952A3000BA67DF /* imageHelper.swift */,
+				BCA859CF24D21F4700214D48 /* Loopable.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		BCA859CA24D2129200214D48 /* SpoonacularAPI */ = {
+			isa = PBXGroup;
+			children = (
+				BCA859CB24D212B000214D48 /* SAPI.swift */,
+				BCA859CD24D212DD00214D48 /* SData.swift */,
+			);
+			path = SpoonacularAPI;
 			sourceTree = "<group>";
 		};
 		BCE0DEF924A7ED0900E756A9 /* Edamam */ = {
@@ -387,16 +405,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCD22B7E24D0C96900BB30E5 /* WaveCircle.swift in Sources */,
 				BC8B72EC2495337500AE719E /* FoodRow.swift in Sources */,
 				BC8B72EE24955E9A00AE719E /* TypeCell.swift in Sources */,
 				BC351C0F24B8836A00197C25 /* SummaryBars.swift in Sources */,
 				BC0CB5E1249E376500FDF31B /* SRR.swift in Sources */,
 				BC868CDE24951ECB00BA67DF /* AppDelegate.swift in Sources */,
+				BC1BF17D24CCB0C1002F0B86 /* SideTabBar.swift in Sources */,
 				BC7ADE9B24A2576E00B3884B /* IngredientShoppingList.swift in Sources */,
 				BC351C1124B89BB000197C25 /* Main.swift in Sources */,
+				BC1BF18124CCBD54002F0B86 /* Color.swift in Sources */,
 				BC4E731A24968E170012D0CD /* IngredientRow.swift in Sources */,
+				BCA859CE24D212DD00214D48 /* SData.swift in Sources */,
 				BC868CFA24952A3000BA67DF /* imageHelper.swift in Sources */,
 				BC3B3B3824A3645300047102 /* ShoppingListCard.swift in Sources */,
+				BC1BF18324CCC7E2002F0B86 /* MultipleMenu.swift in Sources */,
 				BC303472249D5FAA0084AF6B /* TastyAPI.swift in Sources */,
 				BC351C1724B8EF0900197C25 /* DietRecipes.swift in Sources */,
 				BC868CF82495293700BA67DF /* FoodCell.swift in Sources */,
@@ -404,11 +427,12 @@
 				BCF5188524CB358900CF0C22 /* Stylings.swift in Sources */,
 				BC351C1324B8ADEC00197C25 /* FavoriteRecipes.swift in Sources */,
 				BCE0DEFB24A7ED2700E756A9 /* EdamamAPI.swift in Sources */,
-				BC8B72F02495626C00AE719E /* FoodType.swift in Sources */,
+				BCD22B8024D0CDE700BB30E5 /* WaveFillCards.swift in Sources */,
 				BCEC672524CB78E900797227 /* Titles.swift in Sources */,
 				BC36EBCE24AA726B0047F44D /* LargeFoodCell.swift in Sources */,
 				BC351C0D24B87B7F00197C25 /* TabButtons.swift in Sources */,
 				BC3B3B3A24A3888100047102 /* PieChart.swift in Sources */,
+				BC1BF17F24CCBA4C002F0B86 /* FoodVerticalCell.swift in Sources */,
 				BCAF940624C1BBDA00D8E422 /* SearchView.swift in Sources */,
 				BC7ADE9D24A25A1600B3884B /* ShoppingList.swift in Sources */,
 				BC868CE024951ECB00BA67DF /* SceneDelegate.swift in Sources */,
@@ -420,15 +444,15 @@
 				BCCB029924B91B4F00053A85 /* FavoritePanel.swift in Sources */,
 				BC351C0B24B7C2CE00197C25 /* WebPlayer.swift in Sources */,
 				BCE0DEFD24A7EDEB00E756A9 /* EdamamData.swift in Sources */,
+				BCA859D024D21F4700214D48 /* Loopable.swift in Sources */,
 				BCAF940824C2E15D00D8E422 /* BingingBabish.swift in Sources */,
 				BCE0DEFF24A7F35300E756A9 /* EdamamEnums.swift in Sources */,
 				BC4E7318249672430012D0CD /* FoodDetailView.swift in Sources */,
-				BC868CF52495210F00BA67DF /* FoodData.swift in Sources */,
 				BC0CB5E5249E4ABC00FDF31B /* VideoPlayer.swift in Sources */,
+				BCA859CC24D212B000214D48 /* SAPI.swift in Sources */,
 				BC8B487724A24C52008FDEEE /* BottomBar.swift in Sources */,
 				BCEC672324CB6A3C00797227 /* AnimatedWave.swift in Sources */,
 				BC314F2924AD18AC00732E3B /* DailyUse.swift in Sources */,
-				BC868CF324951EEC00BA67DF /* ForkifyAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

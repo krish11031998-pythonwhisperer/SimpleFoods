@@ -72,3 +72,19 @@ struct Stylings_Previews: PreviewProvider {
         
     }
 }
+
+struct TopArc : View{
+
+    var center:CGPoint;
+    var color:UIColor = UIColor.flatWatermelonDark()
+    var radius:CGFloat = 30;
+    var opacity:Double = 1.0;
+    var body : some View{
+        
+        Path{path in
+            
+            path.move(to: self.center)
+            path.addArc(center: self.center, radius: self.radius, startAngle: .init(degrees :90), endAngle: .init(degrees : 180), clockwise: false)
+        }.fill(Color(self.color).opacity(self.opacity))
+    }
+}

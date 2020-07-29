@@ -222,9 +222,9 @@
                   urlString = "file:///Users/krishnavenkatramani/Desktop/iOS_Dev/SimpleFood/SimpleFood/Views/FoodDetailView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "43"
-                  endingLineNumber = "43"
-                  offsetFromSymbolStart = "1371">
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "1278">
                </Location>
                <Location
                   uuid = "1AD8924F-FE83-49A6-BEAF-547E0BDCE536 - c6534d00fa11a7fe"
@@ -237,8 +237,8 @@
                   urlString = "file:///Users/krishnavenkatramani/Desktop/iOS_Dev/SimpleFood/SimpleFood/Views/FoodDetailView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "44"
-                  endingLineNumber = "44"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
                   offsetFromSymbolStart = "220">
                </Location>
             </Locations>
@@ -302,9 +302,9 @@
                   urlString = "file:///Users/krishnavenkatramani/Desktop/iOS_Dev/SimpleFood/SimpleFood/Views/FoodDetailView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "47"
-                  endingLineNumber = "47"
-                  offsetFromSymbolStart = "1778">
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "1647">
                </Location>
                <Location
                   uuid = "F5D674FE-848A-46D8-9328-D289CF861A82 - 39668b62e45a7dff"
@@ -317,8 +317,8 @@
                   urlString = "file:///Users/krishnavenkatramani/Desktop/iOS_Dev/SimpleFood/SimpleFood/Views/FoodDetailView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "48"
-                  endingLineNumber = "48"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
                   offsetFromSymbolStart = "41">
                </Location>
             </Locations>
@@ -366,9 +366,9 @@
                   urlString = "file:///Users/krishnavenkatramani/Desktop/iOS_Dev/SimpleFood/SimpleFood/Views/FoodDetailView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "37"
-                  endingLineNumber = "37"
-                  offsetFromSymbolStart = "1099">
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "1021">
                </Location>
                <Location
                   uuid = "A731F199-C283-4179-AC08-0C09F7AC10FD - 8f4f0f2e08a8d1f9"
@@ -381,8 +381,8 @@
                   urlString = "file:///Users/krishnavenkatramani/Desktop/iOS_Dev/SimpleFood/SimpleFood/Views/FoodDetailView.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
                   offsetFromSymbolStart = "275">
                </Location>
             </Locations>
