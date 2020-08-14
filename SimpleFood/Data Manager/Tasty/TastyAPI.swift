@@ -34,7 +34,7 @@ class TastyAPI:ObservableObject{
         }else{
             print("foodList : \(self.foodList)")
         }
-        print("topfive \(topFive)");
+//        print("topfive \(topFive)");
     }
     
     func getData(){

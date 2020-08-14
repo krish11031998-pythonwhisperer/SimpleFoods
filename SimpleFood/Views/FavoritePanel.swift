@@ -10,17 +10,21 @@ import SwiftUI
 
 struct FavoritePanel: View {
     @ObservedObject var recipeManager = FavoriteRecipeManager()
-    @ObservedObject var foodManager = EdamamAPIManager()
     var body: some View {
-        
-        VStack(alignment: .leading, spacing: 7.5){
-            
-            ForEach(self.recipeManager.finalData, id:\.self){(recipe) in
-                NavigationLink(destination : CircleView(food:self.foodManager.getRecipe(recipe.uri)!)){
-                    LargeFoodCard(recipe:recipe)
+        VStack{
+            Text("Favorites");
+            VStack(alignment: .leading, spacing: 7.5){
+                
+                ForEach(0..<self.recipeManager.finalData.count, id:\.self){(i) in
+                    NavigationLink(destination : MainFoodView(food:self.recipeManager.finalData[i])){
+                        LargeFoodCard(recipe:self.recipeManager.finalData[i])
+                    }
                 }
-            }
-        }.frame(width:UIScreen.main.bounds.size.width)
+            }.frame(width:UIScreen.main.bounds.size.width)
+        }.onAppear {
+            self.recipeManager.readData()
+        }
+        
     }
 }
 

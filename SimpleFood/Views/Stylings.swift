@@ -62,8 +62,6 @@ struct Stylings_Previews: PreviewProvider {
                     .foregroundColor(Color(UIColor.flatWatermelon()))
                     .animation(Animation.easeOut(duration: 2).repeatForever(autoreverses: true))
             }
-            
-            Spacer()
         }.edgesIgnoringSafeArea(.all)
             .onAppear {
                 Stylings_Previews.animate.toggle()

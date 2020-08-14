@@ -14,3 +14,14 @@ struct ClearButtonStyle: ButtonStyle {
             .foregroundColor(.white);
     }
 }
+
+struct SearchTextFieldStyle: TextFieldStyle{
+    var color:Color = .mainColor
+    func _body(configuration: TextField<Self._Label>) -> some View{
+        configuration
+            .padding(.all)
+            .background(
+                RoundedRectangle(cornerRadius: 15)
+                .strokeBorder(self.color, lineWidth: 1.5))
+    }
+}

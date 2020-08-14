@@ -21,7 +21,7 @@ struct LargeFoodCard:View{
     //        }
     //    }
     //    @Binding var changeActive:Bool;
-    var recipe:RealmRecipe;
+    var recipe:SResult;
     @ObservedObject var imageManager = DownloadImage();
     //    var onClick: (_ recipe:RealmRecipe) -> Void
     var cardImage:UIImage{
@@ -33,13 +33,13 @@ struct LargeFoodCard:View{
     }
     var cardTitle:String{
         get{
-            return self.recipe.title.capitalized
+            return self.recipe.title?.capitalized ?? ""
         }
     }
     
     var publisher:String{
         get{
-            return self.recipe.source
+            return ""
         }
     }
     

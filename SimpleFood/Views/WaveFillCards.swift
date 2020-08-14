@@ -40,12 +40,12 @@ struct WaveFillCards: View {
                 VStack{
                     Spacer()
                     ZStack(alignment: .bottom){
-                        Wave(yOffset: self.animate ? 0.2 :  -0.2)
+                        Wave(yOffset: self.animate ? 0.5 :  -0.5)
                             .frame(width:UIScreen.main.bounds.size.width/2.25, height: self.percent)
                         .opacity(0.8)
                             .foregroundColor(Color(self.colorMain))
                         .animation(Animation.easeOut(duration: 2.5).repeatForever(autoreverses: true))
-                        .clipShape(Corners(corner:[.bottomRight,.bottomLeft,.topRight,.topLeft], size:CGSize(width:10,height:10)))
+                            .clipShape(Corners(corner:[.bottomRight,.bottomLeft,.topRight,.topLeft], size:CGSize(width:10,height:10)))
                         .rotationEffect(.init(degrees: 180))
                         HStack{
                             Text("\(value) \(unit)").font(.custom("Avenir Next", size: 25)).foregroundColor(Color.white)
@@ -65,5 +65,6 @@ struct WaveFillCards: View {
 struct WaveFillCards_Previews: PreviewProvider {
     static var previews: some View {
         WaveFillCards(key: "Calories", value: 200, unit: "kcal")
+//        Text("Hello World")
     }
 }

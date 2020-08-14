@@ -14,20 +14,18 @@ struct AnimatedWaves: View {
         VStack{
             ZStack(alignment: .top){
                 Wave(yOffset: self.animate ? 0.5 :  -0.5)
-                    .frame(height:180)
+                    .frame(height:60)
                     .opacity(0.8)
                     .foregroundColor(Color(UIColor.flatWatermelon()))
                     .animation(Animation.easeOut(duration: 2.5).repeatForever(autoreverses: true))
                 Wave(yOffset: self.animate ? -0.5 : 0.5)
-                    .frame(height:170)
+                    .frame(height:50)
                     .opacity(0.8)
                     .foregroundColor(Color(UIColor.flatWatermelon()))
                     .animation(Animation.easeOut(duration: 2.5).repeatForever(autoreverses: true))
                 
             }
-            
-            Spacer()
-        }.edgesIgnoringSafeArea(.all)
+        }
             .onAppear {
                 self.animate.toggle()
         }

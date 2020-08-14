@@ -16,6 +16,16 @@ class RealmIngredient : Object{
     @objc dynamic var quantity:String = "";//G
     @objc dynamic var unit:String = "";//G
     @objc dynamic var purchased: Bool = false;
+    
+    static var ingredient:RealmIngredient{
+        get{
+            var newIngredient = RealmIngredient()
+            newIngredient.name = "Tofu"
+            newIngredient.quantity = "10"
+            newIngredient.unit = "g"
+            return newIngredient
+        }
+    }
 }
 
 
@@ -74,7 +84,7 @@ class ShoppingList:ObservableObject{
                 try self.realm.write({
                     safeDataObj.purchased = !safeDataObj.purchased
                 })
-                print(safeDataObj);
+//                print(safeDataObj);
             }catch{
                 print("There was an error while updating the ingredient!\(safeDataObj)");
             }

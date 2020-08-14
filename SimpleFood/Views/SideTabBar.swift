@@ -9,9 +9,9 @@
 import SwiftUI
 
 struct SideTabBar: View {
-    @Binding var value:Meal;
-    var Dishes:[Meal] = [.Breakfast,.Dinner, .Lunch, .TeaTime, .Snack];
-    var foods:[ERecipeID] = [];
+    @Binding var value:SMeal;
+    var Dishes:[SMeal] = [.Breakfast,.Beverage, .Salad, .Drink, .Snack];
+    var foods:[SResult] = [];
     var body: some View {
         HStack{
             ZStack{
@@ -21,7 +21,6 @@ struct SideTabBar: View {
                     .frame(width: 50,height:300)
                     .clipShape(Corners(corner: [.topRight,.bottomRight], size: CGSize(width: 50, height: 50)))
                 HStack(spacing: 5){
-                    Spacer()
                     ForEach(self.Dishes, id: \.self){(dish) in
                         
                         VStack(spacing:1.5){
@@ -40,14 +39,13 @@ struct SideTabBar: View {
                         }.padding(.bottom)
                         
                     }
-                    Spacer()
                 }.frame(width: 50,height:350).rotationEffect(.init(degrees: 270))
             }
             
             ScrollView(.horizontal,showsIndicators: false){
                 HStack(spacing: 5){
-                    ForEach(self.foods){(food) in
-                        FoodVerticalCell(food.recipe)
+                    ForEach(0..<self.foods.count){(i) in
+                        FoodVerticalCell(self.foods[i])
                     }
                 }
             }
@@ -59,6 +57,6 @@ struct SideTabBar: View {
 
 //struct SideTabBar_Previews: PreviewProvider {
 //    static var previews: some View {
-//        SideTabBar(foods: [ERecipeID(id: 1, recipe: edamamExample!),ERecipeID(id: 2, recipe: edamamExample!)])
+//        SideTabBar(foods: SExamples)
 //    }
 //}

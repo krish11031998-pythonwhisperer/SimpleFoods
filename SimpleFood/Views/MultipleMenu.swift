@@ -9,16 +9,13 @@
 import SwiftUI
 
 struct MultipleMenu: View {
-    @State var meal: Meal = .Breakfast
-    @ObservedObject var EFDM:EdamamAPIManager = EdamamAPIManager();
+    @State var meal: SMeal = .Breakfast
     var body: some View {
-        SideTabBar(value: self.$meal, foods: self.EFDM.result.count > 0 ? self.EFDM.result : [ERecipeID(id: 1, recipe: edamamExample!),ERecipeID(id: 2, recipe: edamamExample!)])
-            .onAppear{
-                var q = queryParams(q: self.meal.rawValue, from: 1, to: 5)
-                self.EFDM.query = q;
-                self.EFDM.getResults()
-        }
-//        Text("Hello")
+
+        VStack{
+            FoodTabs(value: self.$meal, query: SQuery(diet: "vegetarian", type: self.meal.rawValue, instructionsRequired: true, addRecipeInformation: true, addRecipeNutrition: true))
+        }.padding(.top)
+        
     }
 }
 

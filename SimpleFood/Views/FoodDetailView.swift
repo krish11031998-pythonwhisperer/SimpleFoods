@@ -15,16 +15,15 @@ let colors = [FlatYellow(),FlatTeal(),FlatWatermelon()]
 
 struct FoodDetailView: View {
     @Environment(\.colorScheme) var colorScheme
-    var food : EdamamRecipe;
-    @State var showSummary:Bool = true;
-    @State var showRecipes:Bool = false;
-    //    @State var colorSummary:UIColor = FlatWatermelon();
-    //    @State var colorRecipe:UIColor = FlatWatermelon();
-    @ObservedObject var imageManager = DownloadImage();
+    var food : SResult
+    @State var showSummary:Bool = true
+    @State var showRecipes:Bool = false
+    @ObservedObject var imageManager = DownloadImage()
     @ObservedObject var recipeManager = FavoriteRecipeManager()
-    init(food:EdamamRecipe){
-        self.food = food;
-        self.updateRecipe();
+    init(food:SResult){
+        self.food = food
+        //        print(self.food)
+        self.updateRecipe()
     }
     
     var PieChartLegend:[String:Color]{
@@ -33,171 +32,163 @@ struct FoodDetailView: View {
         }
     }
     
-    var nutritionTotal:[String:[String:Int]]{
-        get{
-            var nutri = ["fat","sugar","carbs","protein","fiber"];
-            var finalResult:[String:[String:Int]] = [:];
-            var result:[String:Int] = [:]
-            var total:Int = 0;
-            if let safeNutrients = self.food.totalNutrients{
-                print(safeNutrients["PROCNT"])
-                nutri.forEach { (nutrient) in
-                    if let nutrientCode = NutrientType[nutrient], let value = safeNutrients[nutrientCode]?.quantity{
-                        result[nutrient] =  Int(value)
-                        total += Int(value)
-                    }
-                }
-                result.keys.forEach { (key) in
-                    finalResult[key] = ["value": Int(result[key] ?? 0),"max":total]
-                }
-            }else{
-                nutri.forEach({(nutrient) in
-                    result[nutrient] = 0
-                })
-            }
-            print(finalResult)
-            return finalResult
+    var getSteps:[SStep]{
+        get {
+            return self.food.analyzedInstructions?[0].steps ?? []
         }
     }
     
-    
-    var nutrition:[String:Float]{
+    var nutrientPercent:[String:SNutrient]{
         get{
-            var nutri = ["fat","sugar","carbs","protein","fiber"];
-            var result:[String:Float] = [:]
-            var total:Int = 0;
-            if let safeNutrients = self.food.totalNutrients{
-                print(safeNutrients["PROCNT"])
-                nutri.forEach { (nutrient) in
-                    if let nutrientCode = NutrientType[nutrient], let value = safeNutrients[nutrientCode]?.quantity{
-                        result[nutrient] =  value
+            var finalNutrient:[String:SNutrient] = [:]
+            var nutri = ["fat","calories","carbohydrates","protein","fiber","sugar"]
+            if let nutrients = self.food.nutrition?.nutrients{
+                nutrients.forEach { (nutrient) in
+                    if let title = nutrient.title?.lowercased(){
+                        if nutri.contains(title){
+                            finalNutrient[title] = nutrient
+                        }
                     }
                 }
-            }else{
-                nutri.forEach({(nutrient) in
-                    result[nutrient] = 0
-                })
             }
-            print(result)
-            return result
-        }
-    }
-    
-    var nutrientPercent:[String:[String:Int]]{
-        get{
-            var finalNutrient:[String:[String:Int]] = [:]
-            var nutri = ["fat","energy","carbs","protein","fiber"].map { (value) -> String in
-                return NutrientType[value]!;
-            }
-            let nutrientDetails = self.food.parseDigest();
-            nutri.forEach{(nutrient) in
-                if let label = nutrientDetails[nutrient]?.label , let daily = nutrientDetails[nutrient]?.daily, let total = nutrientDetails[nutrient]?.total{
-                    finalNutrient[label] = ["value":Int(total),"max":Int(daily)];
-                }
-            }
+            //            print(finalNutrient)
             return finalNutrient
+            
+            
         }
     }
     
     var labels:[String]{
         get{
             var result:[String] = []
-            if let diet = self.food.dietLabels{
+            if let diet = self.food.diets{
                 result += diet
             }
-            if let health = self.food.healthLabels{
+            if let health = self.food.dishTypes{
                 result += health
             }
             return result
         }
     }
     
-    
-    var body: some View {
-        //        ScrollView(.vertical,showsIndicators: false){
-        VStack{
-            VStack(alignment: .center){
-                //                ZStack(alignment:.bottom){
-                Spacer().frame(height: 50)
-                ZStack(alignment: .top){
-                    Image(uiImage: self.imageManager.image)
-                    .resizable()
-                    .frame(width: width, height: UIScreen.main.bounds.height/2.5, alignment: .center)
-                    .cornerRadius(20)
-                    .padding(.top)
-                    HStack{
-                        Spacer()
-                        LoveButton(){
-                            print("Adding the recipe");
-                            self.recipeManager.addRecipe(self.food)
-                        }.padding(.all,10).padding(.trailing,2.5)
-                    }
-                }
-                
-            HStack{
-                Spacer(minLength: 50)
-                VStack{
-                    Text(food.label?.capitalized ?? "No Title")
-                        .foregroundColor(.white)
-                        .font(.custom("Avenir Next", size: 30))
-                        .fixedSize(horizontal: false, vertical: true)
-                }
-                Spacer(minLength: 50)
-            }.padding(.leading,5)
-                SummaryBars(yeilds: self.food.yield ?? 0, time: (self.food.totalTime ?? 0)/60, weight: (self.food.totalWeight ?? 0.0)/1000.0).padding(.horizontal,25).padding(.bottom)
-                TabButtons(buttonOne: self.$showSummary, buttonTwo: self.$showRecipes);
-                
+    var recipeSummary:String{
+        get{
+            var result:String = ""
+            if let summary = self.food.summary{
+                result = summary.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
             }
-            .padding(.top,25)
-            .background(LinearGradient(gradient: Gradient(colors: [Color(UIColor.flatWatermelon()).opacity(0.75),Color(UIColor.flatWatermelonDark())]), startPoint: .top, endPoint: .bottom))
-            .clipShape(Corners(corner: [.bottomRight], size: CGSize(width: 100, height: 100)))
-            
-            ZStack{
-                Color(UIColor.flatWatermelonDark())
-                VStack{
-                    if self.showSummary{
-                        VStack(alignment: .leading, spacing: 5) {
-                            HStack{
-                                Spacer()
-                                PieChart(values: self.PieChartValues(),legend: self.PieChartLegend)
-                                Spacer()
-                            }
-                            Spacer().frame(height:20)
-                            HStack{
-                                Spacer()
-                                NutrientBars(nutrition_info: self.nutrientPercent)
-                                Spacer()
-                            }
-                        }.animation(.spring())
-                    }
-                    else if self.showRecipes{
-                        HStack{
-                            Spacer()
-                            VStack(alignment: .leading, spacing: 5) {
-                                
-                                Spacer()
-                                IngredientRow(recipe: self.food.ingredients ?? [], color: colorScheme == .dark ? UIColor.black : UIColor.white, type: "ingredients")
-                                Spacer()
-                                WebPlayerView(urlString:self.food.url ?? "")
-                                
-                            }.animation(.spring())
-                            Spacer()
-                        }.animation(.spring())
-                        
-                        
-                    }
-                }.background(self.colorScheme == .dark ? Color.black : Color.white).clipShape(Corners(corner: [.topLeft], size: CGSize(width:100,height:100)))
-            }
+            return result
         }
     }
     
+    var body: some View {
+        ScrollView(.vertical,showsIndicators:false){
+            VStack{
+                self.imageView
+                ZStack{
+                    Color(UIColor.flatWatermelonDark())
+                    VStack{
+                        if self.showSummary{
+                            VStack(alignment: .leading, spacing: 5) {
+                                self.summayPanel.padding(.top, 20)
+                                Spacer().frame(height:20)
+                                HStack{
+                                    Spacer()
+                                    NutrientBars(nutrition_info: self.nutrientPercent, breakdownData: self.food.nutrition?.caloricBreakdown)
+                                    Spacer()
+                                }
+                                Spacer().frame(height:20)
+//                                HStack{
+//                                    Spacer()
+//                                    PieChart(values: self.PieChartValues(),legend: self.PieChartLegend)
+//                                    Spacer()
+//                                }
+                                Spacer().frame(height:50)
+                                
+                            }.padding(.bottom,10).animation(.spring())
+                        }
+                        else if self.showRecipes{
+                            HStack{
+                                Spacer()
+                                VStack(alignment: .leading, spacing: 5) {
+                                    Group{
+                                        Spacer()
+                                        IngredientRow(recipe: self.food.nutrition?.ingredients ?? [], color: colorScheme == .dark ? UIColor.black : UIColor.white, type: "ingredients")
+                                        Spacer()
+                                        IngredientRow(steps: self.getSteps, color: colorScheme == .dark ? UIColor.black : UIColor.white, type: "instructions")
+                                        Spacer()
+                                        WebPlayerView(urlString:self.food.sourceUrl ?? "")
+                                        Spacer().frame(height:50)
+                                    }
+                                }
+                                Spacer()
+                            }.animation(.spring())
+                        }
+                    }.background(self.colorScheme == .dark ? Color.black : Color.white).clipShape(Corners(corner: [.topLeft], size: CGSize(width:50,height:50)))
+                }.padding(.bottom,10)
+            }.padding(.bottom,10)
+        }.edgesIgnoringSafeArea(.top)
+    }
+    
+    var summayPanel: some View{
+        VStack{
+            Titles(title: "Summary")
+            HStack{
+                Spacer(minLength: 25)
+                Text(self.recipeSummary)
+                    .font(.custom("Avenir Next",size: 12.5))
+                    .fontWeight(.medium)
+                Spacer(minLength: 25)
+            }
+        }
+        
+    }
+    
+    var imageView : some View {
+        VStack(alignment: .center){
+            Spacer().frame(height: 50)
+            ZStack(alignment: .top){
+                Image(uiImage: self.imageManager.image)
+                    .resizable()
+                    .renderingMode(.original)
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: width, height: UIScreen.main.bounds.height/2.5, alignment: .center)
+                    .cornerRadius(20)
+                    .padding(.top)
+                HStack{
+                    Spacer()
+                    LoveButton(){
+                        print("Adding the recipe")
+                        self.recipeManager.addRecipe(self.food)
+                    }.padding(.all,10).padding(.trailing,2.5)
+                }
+            }
+            HStack{
+                Spacer(minLength: 50)
+                Text(self.food.title?.capitalized ?? "No Title")
+                    .foregroundColor(.white)
+                    .font(.custom("Avenir Next", size: 30))
+                    .fixedSize(horizontal: false, vertical: true)
+                Spacer(minLength: 50)
+            }.padding(.leading,5)
+            //            self.summayPanel.padding(.top)
+            SummaryBars(yeilds: self.food.servings ?? 0, time: (self.food.readyInMinutes ?? 0)/60, weight: Float(self.food.nutrition?.weightPerServing?.amount ?? 0)/1000.0)
+            TabButtons(buttonOne: self.$showSummary, buttonTwo: self.$showRecipes)
+            
+        }
+        .padding(.top,25)
+        .background(LinearGradient(gradient: Gradient(colors: [Color(UIColor.flatWatermelon()).opacity(0.75),Color(UIColor.flatWatermelonDark())]), startPoint: .top, endPoint: .bottom))
+        .clipShape(Corners(corner: [.bottomRight], size: CGSize(width: 50, height: 50)))
+    }
+    
+    
+    
+    
     func PieChartValues()-> [Nutrients]{
         return [
-            Nutrients(value: nutrition["protein"] ?? 0.0, color: Color(FlatGreenDark())),
-            Nutrients(value: nutrition["carbs"] ?? 0.0, color: Color(FlatSkyBlueDark())),
-            Nutrients(value: nutrition["fat"] ?? 0.0, color: Color(FlatRed())),
-            Nutrients(value: nutrition["sugar"] ?? 0.0, color: Color(FlatLimeDark())),
-            Nutrients(value: nutrition["fiber"] ?? 0.0, color: Color(FlatBlue())),
+            Nutrients(value: self.food.nutrition?.caloricBreakdown?.percentProtein ?? 0.0, color: Color(FlatGreenDark())),
+            Nutrients(value: self.food.nutrition?.caloricBreakdown?.percentCarbs ?? 0.0, color: Color(FlatSkyBlueDark())),
+            Nutrients(value: self.food.nutrition?.caloricBreakdown?.percentFat ?? 0.0, color: Color(FlatRed())),
         ]
     }
     
@@ -225,9 +216,10 @@ struct LoveButton:View{
         
     }
 }
+//
 
 struct FoodDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        FoodDetailView(food: edamamExample!)
+        FoodDetailView(food: SExample)
     }
 }

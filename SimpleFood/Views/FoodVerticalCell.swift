@@ -12,8 +12,8 @@ struct FoodVerticalCell: View {
     var width: CGFloat;
     var height: CGFloat;
     @ObservedObject var imageManager = DownloadImage()
-    var food :EdamamRecipe;
-    init(_ food:EdamamRecipe, _ width:CGFloat = 200, _ height:CGFloat = 300){
+    var food :SResult;
+    init(_ food:SResult, _ width:CGFloat = 200, _ height:CGFloat = 300){
         self.width = width;
         self.height = height;
         self.food = food;
@@ -23,28 +23,34 @@ struct FoodVerticalCell: View {
         }
     }
     var body: some View {
-        VStack{
-            ZStack(alignment: .bottom){
-                Image(uiImage: self.imageManager.image)
-                    .resizable()
-                    .frame(width: self.width, height: self.height, alignment: .center)
-                    .cornerRadius(20)
-                RoundedRectangle(cornerRadius: 20)
-                    .fill(Color.black)
-                    .opacity(0.5)
-                    .frame(width: self.width, height: self.height)
-                VStack{
-                    Spacer()
-                    Text(self.food.label?.capitalized ?? "No Title")
-                        .font(.custom("Avenir Next", size: 20))
-                        .fontWeight(.medium)
-                        .foregroundColor(.white)
-                        .frame(width:self.width - 50)
+        NavigationLink(destination : FoodDetailView(food: self.food)){
+            VStack{
+                ZStack(alignment: .bottom){
+                    Image(uiImage: self.imageManager.image)
+                        .resizable()
+                        .renderingMode(.original)
+                        .aspectRatio(contentMode: .fill)
+                        .frame(width: self.width, height: self.height, alignment: .center)
+                        .cornerRadius(20)
+                    RoundedRectangle(cornerRadius: 20)
+                        .fill(Color.black)
+                        .opacity(0.5)
+                        .frame(width: self.width, height: self.height)
+                    HStack(){
                         
-                    .fixedSize(horizontal: false, vertical: true)
-                        .padding(.bottom)
-                }
-            }.frame(width: self.width, height: self.height)
+                        Text(self.food.title ?? "No Title")
+                            .font(.custom("Avenir Next", size: 20))
+                            .fontWeight(.medium)
+                            .foregroundColor(.white)
+                            .frame(width:self.width - 50)
+                            
+                            .fixedSize(horizontal: false, vertical: true)
+                            .padding(.bottom)
+                            .padding(.leading)
+                        Spacer()
+                    }
+                }.frame(width: self.width, height: self.height)
+            }
         }
         
         
@@ -53,6 +59,6 @@ struct FoodVerticalCell: View {
 
 struct FoodVerticalCell_Previews: PreviewProvider {
     static var previews: some View {
-        FoodVerticalCell(edamamExample!)
+        FoodVerticalCell(SExample)
     }
 }
